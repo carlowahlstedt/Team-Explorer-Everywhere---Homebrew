@@ -1,6 +1,6 @@
-$tee = Invoke-WebRequest -Uri https://api.github.com/repos/Microsoft/team-explorer-everywhere/releases/latest | ConvertFrom-Json
+$tee = Invoke-WebRequest -Uri https://api.github.com/repos/Microsoft/team-explorer-everywhere/releases/latest -UseBasicParsing | ConvertFrom-Json
 
-$homebrew = Invoke-WebRequest -Uri https://api.github.com/repos/Homebrew/homebrew-core/contents/Formula/tee-clc.rb | ConvertFrom-Json
+$homebrew = Invoke-WebRequest -Uri https://api.github.com/repos/Homebrew/homebrew-core/contents/Formula/tee-clc.rb -UseBasicParsing | ConvertFrom-Json
 
 $contents = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($homebrew.content))
 
